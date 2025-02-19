@@ -7,6 +7,7 @@ import com.productService.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -41,6 +42,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getByProductNameOrPrice(String productName, Double price) {
         return productRepository.findByProductNameOrPrice(productName,price);
+    }
+
+    @Override
+    public List<Product> getByExpiryDate(LocalDate expiryDate) {
+        return productRepository.findByExpiryDate(expiryDate);
     }
 
 

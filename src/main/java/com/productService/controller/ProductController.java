@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -42,6 +43,11 @@ public class ProductController {
     @GetMapping("/products/Price")
     public List<Product> getProductsByPrice(@RequestParam(required = true) double price){
       return   productService.getByPrice(price);
+
+    }
+    @GetMapping("/products/expiryDate")
+    public List<Product> getProductsByexpiryDate(@RequestParam(required = true) LocalDate expiryDate){
+        return   productService.getByExpiryDate(expiryDate);
 
     }
     @GetMapping("/products/search")
